@@ -1,0 +1,9 @@
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.ssh" | Out-Null
+ssh-keygen -t ed25519 -C "xifan" -f "$env:USERPROFILE\.ssh\xifan"
+Get-Content "$env:USERPROFILE\.ssh\xifan.pub" | Set-Clipboard
+
+###ssh to your server
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+nano ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
